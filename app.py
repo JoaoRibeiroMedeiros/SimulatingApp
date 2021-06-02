@@ -40,7 +40,9 @@ class SimulacaoBimodal:
         self.the_plot = st.pyplot(plt)
 
         self.max_samples = self.nt
-        self.t = deque(np.arange(-self.nt-1+lag,lag ), self.nt+ 1)
+
+        #tempo = np.arange(self.dt * self.nc, self.nt * self.dt * self.nc, self.dt * self.nc)
+        self.t = deque(np.arange(-self.nt*self.dt*self.nc-1+lag,lag, self.dt*self.nc ), self.nt+ 1)
         self.x = deque(np.zeros(self.nt+1), self.nt+1)
         self.v = deque(np.zeros(self.nt+1), self.nt+1)
         self.zeta = deque(np.zeros(self.nt+1), self.nt+1)
@@ -73,7 +75,7 @@ class SimulacaoBimodal:
 
     def animate(self):
 
-        tempo = np.arange(self.dt * self.nc, self.nt * self.dt * self.nc, self.dt * self.nc)
+        #tempo = np.arange(self.dt * self.nc, self.nt * self.dt * self.nc, self.dt * self.nc)
         #x0 = np.zeros((1,1))
         #ruido0 = np.array([[self.xa]])
         #e0 = np.zeros((1,1))
@@ -163,13 +165,13 @@ class SimulacaoBimodal:
                     
                     self.x.append(xx) 
 
-                    print(self.t)
-                    print(self.x)
+                    #print(self.t)
+                    #print(self.x)
 
                     self.v.append(vv) 
                     self.E.append(ji1-jd1) 
                     self.zeta.append(eta) 
-                    self.t.append(self.t[-1]+1) 
+                    self.t.append(self.t[-1] + self.dt * self.nc) 
                     
                     self.line00.set_ydata(np.array(self.x))
                     self.line00.set_xdata(np.array(self.t)) 
@@ -211,8 +213,16 @@ class SimulacaoBimodal:
 #__init__(self, ns, nt, ntrans, nc, dt, massa, gamma, ctelastica, alfa, dalfa, xa, dxa):
 
 st.title('Unidimensional particle under dichotomous noise')
-st.header('by João Ribeiro')
+st.header('an app by João Ribeiro Medeiros')
 st.text("")
+st.text("")
+st.text("")
+
+st.markdown("The simulation herein presented was studied in these two articles by João Ribeiro Medeiros and Sílvio Manuel Duarte Queirós:")
+
+st.write("[Thermostatistics of a damped bimodal particle](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.062145)")
+st.write("[Effective temperatures for single particle system under dichotomous noise](https://arxiv.org/abs/2105.01185)")
+
 st.text("")
 st.text("")
 
@@ -233,14 +243,14 @@ st.text("")
 st.text("")
 
 #ns = st.sidebar.number_input('Enter Sample Number', value = 100) # max e min
-nt = st.sidebar.number_input('Enter Timesteps Number', value = 40)
+nt = st.sidebar.number_input('Enter Total running Time', value = 40)
 ntrans = st.sidebar.number_input('Enter Transient Timesteps (will be left out of plot)', value = 0)
 nc = st.sidebar.number_input('Enter Coarse graining Scale', value = 100)
 dt = st.sidebar.number_input('Enter Timestep size', value = 0.001)
 massa = st.sidebar.number_input('Enter Mass', value = 1)
 gamma = st.sidebar.number_input('Enter dissipation *gamma*', value = 1)
 ctelastica = st.sidebar.number_input('Enter harmonic constant *k*', value = 1)
-alfa = st.sidebar.number_input('Enter reservoir inverse decay time *alfa*', value = 2)
+alfa = st.sidebar.number_input('Enter reservoir inverse decay time *alfa*', value = 10)
 xa = st.sidebar.number_input('Enter reservoir amplitude *a*', value = 1)
 
 st.button("Re-run")
