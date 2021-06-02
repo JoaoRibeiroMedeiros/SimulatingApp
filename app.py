@@ -66,7 +66,7 @@ class SimulacaoBimodal:
 
         self.line10, = self.axs[2].plot(np.array(self.t), np.array(self.zeta),  'tab:blue')
        # self.axs[2].set_title('$\eta$(t)', fontsize=20)
-        self.axs[2].set_title('\eta(t)', fontsize=20)
+        self.axs[2].set_title('\zeta(t)', fontsize=20)
 
 
         self.line11, = self.axs[3].plot(np.array(self.t), np.array(self.E),  'tab:red')
@@ -218,9 +218,9 @@ st.title('Unidimensional particle under dichotomous noise')
 st.header('an app by João Ribeiro Medeiros')
 st.text("")
 st.text("")
-st.text("")
 
-st.markdown("The simulation herein presented was studied in these two articles by João Ribeiro Medeiros and Sílvio Manuel Duarte Queirós:")
+st.markdown("The simulation herein presented was studied in these two articles by") 
+st.markdown("<strong>João Ribeiro Medeiros</strong> and <strong>Sílvio Manuel Duarte Queirós</strong>:") 
 
 st.write("[Thermostatistics of a damped bimodal particle](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.062145)")
 st.write("[Effective temperatures for single particle system under dichotomous noise](https://arxiv.org/abs/2105.01185)")
