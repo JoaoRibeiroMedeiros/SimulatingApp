@@ -65,7 +65,9 @@ class SimulacaoBimodal:
         self.axs[1].set_title('v(t)', fontsize=20)
 
         self.line10, = self.axs[2].plot(np.array(self.t), np.array(self.zeta),  'tab:blue')
-        self.axs[2].set_title('$\eta$(t)', fontsize=20)
+       # self.axs[2].set_title('$\eta$(t)', fontsize=20)
+        self.axs[2].set_title('\eta(t)', fontsize=20)
+
 
         self.line11, = self.axs[3].plot(np.array(self.t), np.array(self.E),  'tab:red')
         self.axs[3].set_title('E(t)', fontsize=20)
