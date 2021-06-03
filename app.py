@@ -434,15 +434,15 @@ st.text("")
 st.text("")
 
 #ns = st.sidebar.number_input('Enter Sample Number', value = 100) # max e min
-nt = st.sidebar.number_input('Enter Total running Time', value = 20, max_value = 30, min_value = 1)
-ntrans = st.sidebar.number_input('Enter Transient Timesteps (will be left out of plot)', value = 0, max_value = 10)
-nc = st.sidebar.number_input('Enter Coarse graining Scale', value = 10, max_value = 30, min_value = 1)
+nt = st.sidebar.number_input('Enter Total running Time', value = 20.0, max_value = 30.0, min_value = 1.0)
+ntrans = st.sidebar.number_input('Enter Transient Timesteps (will be left out of plot)', value = 0.0, max_value = 10.0)
+nc = st.sidebar.number_input('Enter Coarse graining Scale', value = 10.0, max_value = 30.0, min_value = 1.0)
 dt = st.sidebar.number_input('Enter Timestep size', value = 0.01, min_value=0.0001, step=0.001)
-massa = st.sidebar.number_input('Enter Mass', value = 1,  min_value = 0.1, max_value = 30)
-gamma = st.sidebar.number_input('Enter dissipation *gamma*', value = 1, min_value = 0.1, max_value = 30)
-ctelastica = st.sidebar.number_input('Enter harmonic constant *k*', value = 1, min_value = 0.1, max_value = 30)
-alfa = st.sidebar.number_input('Enter reservoir inverse decay time *alfa*', value = 10, min_value = 0.1, max_value = 30)
-xa = st.sidebar.number_input('Enter reservoir amplitude *a*', value = 1, min_value = 0.1, max_value =20)
+massa = st.sidebar.number_input('Enter Mass', value = 1.0,  min_value = 0.1, max_value = 30.0)
+gamma = st.sidebar.number_input('Enter dissipation *gamma*', value = 1.0, min_value = 0.1, max_value = 30.0)
+ctelastica = st.sidebar.number_input('Enter harmonic constant *k*', value = 1.0, min_value = 0.1, max_value = 30.0)
+alfa = st.sidebar.number_input('Enter reservoir inverse decay time *alfa*', value = 10.0, min_value = 0.1, max_value = 30.0)
+xa = st.sidebar.number_input('Enter reservoir amplitude *a*', value = 1.0, min_value = 0.1, max_value =20.0)
 
 st.button("Re-run")
 
