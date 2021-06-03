@@ -28,7 +28,7 @@ class SimulacaoBimodal:
 
     def xxplotly(self):
         fig = go.Figure(
-            data=[go.Scatter(x = self.t, y = self.x,
+            data=[go.Scatter(x = [0], y = [0],
                         name="frame",
                         mode="lines",
                         line=dict(width=2, color="blue"))#,
@@ -79,7 +79,7 @@ class SimulacaoBimodal:
                     x=self.t[:k],
                     y=self.v[:k],
                     mode="lines",
-                    line=dict(color="red", width=2))
+                    line=dict(color="blue", width=2))
                 ]) for k in range(self.nt)]
         )
         st.write(fig)
@@ -104,7 +104,7 @@ class SimulacaoBimodal:
                     x=self.t[:k],
                     y=self.zeta[:k],
                     mode="lines",
-                    line=dict(color="red", width=2))
+                    line=dict(color="green", width=2))
                 ]) for k in range(self.nt)]
         )
         #fig.show()
@@ -130,7 +130,7 @@ class SimulacaoBimodal:
                     x=self.t[:k],
                     y=self.e[:k],
                     mode="lines",
-                    line=dict(color="red", width=2))
+                    line=dict(color="purple", width=2))
                 ]) for k in range(self.nt)]
         )
         #fig.show()
@@ -434,7 +434,7 @@ st.text("")
 st.text("")
 
 #ns = st.sidebar.number_input('Enter Sample Number', value = 100) # max e min
-nt = st.sidebar.number_input('Enter Total running Time', value = 40)
+nt = st.sidebar.number_input('Enter Total running Time', value = 20)
 ntrans = st.sidebar.number_input('Enter Transient Timesteps (will be left out of plot)', value = 0)
 nc = st.sidebar.number_input('Enter Coarse graining Scale', value = 100)
 dt = st.sidebar.number_input('Enter Timestep size', value = 0.001, min_value=0.0001, step=0.001)
