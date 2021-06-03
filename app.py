@@ -446,6 +446,8 @@ xa = st.sidebar.number_input('Enter reservoir amplitude *a*', value = 1)
 
 st.button("Re-run")
 
+loading = st.progress(0)
+
 dalfa = 0
 dxa = 0
 
