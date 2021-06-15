@@ -412,7 +412,7 @@ st.markdown("The simulation herein presented was studied in these two articles b
 st.markdown("**João Ribeiro Medeiros** and **Sílvio Manuel Duarte Queirós**:") 
 
 st.write("[Thermostatistics of a damped bimodal particle](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.92.062145)")
-st.write("[Effective temperatures for single particle system under dichotomous noise](https://arxiv.org/abs/2105.01185)")
+st.write("[Effective temperatures for single particle system under dichotomous noise](https://iopscience.iop.org/article/10.1088/1742-5468/ac014e)")
 
 st.text("")
 st.text("")
