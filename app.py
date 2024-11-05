@@ -10,6 +10,7 @@ from collections import deque
 from src.simulation import SimulacaoBimodal
 
 st.title('Unidimensional particle under dichotomous noise')
+st.text("")
 st.header('an app by João Ribeiro Medeiros')
 st.text("")
 st.text("")
@@ -34,6 +35,9 @@ st.text("")
 st.text("")
 
 #ns = st.sidebar.number_input('Enter Sample Number', value = 100) # max e min
+
+#### SIDEBAR
+
 nt = st.sidebar.number_input('Enter Total running Time', value = 20, max_value = 30, min_value = 1)
 ntrans = st.sidebar.number_input('Enter Transient Timesteps (will be left out of plot)', value = 0, max_value = 10)
 nc = st.sidebar.number_input('Enter Coarse graining Scale', value = 10, max_value = 30, min_value = 1)
@@ -46,7 +50,7 @@ xa = st.sidebar.number_input('Enter reservoir amplitude *a*', value = 1.0, min_v
 
 st.button("Re-run")
 
-loading = st.progress(0)
+
 
 dalfa = 0
 dxa = 0

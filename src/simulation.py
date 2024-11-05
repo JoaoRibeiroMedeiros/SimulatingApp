@@ -5,6 +5,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np 
 from collections import deque
+from math import log
 
 
 class SimulacaoBimodal:
@@ -180,6 +181,16 @@ class SimulacaoBimodal:
 
     def animate(self):
 
+        nt = self.nt
+        nc = self.nc
+        ntrans = self.ntrans
+        gamma = self.gamma
+        # alfa = self.alfa
+        xa = self.xa
+        dxa = self.dxa
+        dt = self.dt
+        massa = self.massa
+
         #tempo = np.arange(self.dt * self.nc, self.nt * self.dt * self.nc, self.dt * self.nc)
         #x0 = np.zeros((1,1))
         #ruido0 = np.array([[self.xa]])
@@ -205,6 +216,7 @@ class SimulacaoBimodal:
 
         xai = self.xa
         alfai = self.alfa
+        dalfa = self.dalfa
        
         c1 = self.ctelastica / self.massa
         gm = self.gamma / self.massa
@@ -323,10 +335,13 @@ class SimulacaoBimodal:
         vv = np.zeros((int(self.nt-self.ntrans)))
         ee = np.zeros((int(self.nt-self.ntrans) ))
         ruido = np.zeros((int(self.nt-self.ntrans)))
-
+        xa = self.xa
+        dt = self.dt
 
         xai = self.xa
         alfai = self.alfa
+        massa = self.massa
+        gamma = self.gamma
        
         c1 = self.ctelastica / self.massa
         gm = self.gamma / self.massa
@@ -348,6 +363,8 @@ class SimulacaoBimodal:
 
         it =  0
         ig =  0
+
+        loading = st.progress(0)
 
         while it < ntc :
             if eta == xa:
